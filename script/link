@@ -1,0 +1,72 @@
+#!/bin/sh
+
+DOT_DIR="${XDG_CONFIG_HOME:-$HOME/.config}/dotfiles"
+DOT_CONFIG_DIR="$DOT_DIR/config"
+
+ln -sf $DOT_CONFIG_DIR/zprofile $HOME/.zprofile
+
+ln -sf $DOT_DIR/local/bin/* $HOME/.local/bin
+
+[ ! -d ${XDG_CONFIG_HOME:-$HOME/.config}/calcurse ] \
+  && mkdir ${XDG_CONFIG_HOME:-$HOME/.config}/calcurse
+[ -d ${XDG_CONFIG_HOME:-$HOME/.config}/calcurse ] \
+  && ln -sf $DOT_CONFIG_DIR/calcurse/conf  ${XDG_CONFIG_HOME:-$HOME/.config}/calcurse/conf
+
+[ ! -d ${XDG_CONFIG_HOME:-$HOME/.config}/git ] \
+  && mkdir ${XDG_CONFIG_HOME:-$HOME/.config}/git;
+[ -d ${XDG_CONFIG_HOME:-$HOME/.config}/git ] \
+  && ln -sf $DOT_CONFIG_DIR/git/config ${XDG_CONFIG_HOME:-$HOME/.config}/git/config
+
+[ ! -d ${XDG_CONFIG_HOME:-$HOME/.config}/nvim ] \
+  && mkdir ${XDG_CONFIG_HOME:-$HOME/.config}/nvim
+[ -d ${XDG_CONFIG_HOME:-$HOME/.config}/nvim ] \
+  && ln -sf $DOT_CONFIG_DIR/nvim/init.vim ${XDG_CONFIG_HOME:-$HOME/.config}/nvim/init.vim
+
+[ ! -d ${XDG_CONFIG_HOME:-$HOME/.config}/pet ] \
+  && mkdir ${XDG_CONFIG_HOME:-$HOME/.config}/pet
+[ -d ${XDG_CONFIG_HOME:-$HOME/.config}/pet ] \
+  && ln -sf $DOT_CONFIG_DIR/pet/config.toml ${XDG_CONFIG_HOME:-$HOME/.config}/pet/config.toml
+
+[ ! -d ${XDG_DATA_HOME:-$HOME/.local/share}/tig ] \
+  && mkdir ${XDG_DATA_HOME:-$HOME/.local/share}/tig
+[ -d ${XDG_DATA_HOME:-$HOME/.local/share}/tig ] \
+  && [ ! -f ${XDG_DATA_HOME:-$HOME/.local/share}/tig/history ] \
+  && touch ${XDG_DATA_HOME:-$HOME/.local/share}/tig/history
+
+[ ! -d ${XDG_CONFIG_HOME:-$HOME/.config}/tig ] \
+  && mkdir ${XDG_CONFIG_HOME:-$HOME/.config}/tig
+[ -d ${XDG_CONFIG_HOME:-$HOME/.config}/tig ] \
+  && ln -sf $DOT_CONFIG_DIR/tig/config ${XDG_CONFIG_HOME:-$HOME/.config}/tig/config
+
+[ ! -d ${XDG_CONFIG_HOME:-$HOME/.config}/tmux ] \
+  && mkdir ${XDG_CONFIG_HOME:-$HOME/.config}/tmux
+[ -d ${XDG_CONFIG_HOME:-$HOME/.config}/tmux ] \
+  && ln -sf $DOT_CONFIG_DIR/tmux/tmux.conf ${XDG_CONFIG_HOME:-$HOME/.config}/tmux/tmux.conf
+
+[ ! -d ${XDG_CONFIG_HOME:-$HOME/.config}/vifm ] \
+  && mkdir ${XDG_CONFIG_HOME:-$HOME/.config}/vifm
+[ -d ${XDG_CONFIG_HOME:-$HOME/.config}/vifm ] \
+  && ln -sf $DOT_CONFIG_DIR/vifm/vifmrc ${XDG_CONFIG_HOME:-$HOME/.config}/vifm/vifmrc
+
+[ ! -d ${XDG_CONFIG_HOME:-$HOME/.config}/vifm/colors ] \
+  && mkdir ${XDG_CONFIG_HOME:-$HOME/.config}/vifm/colors
+[ -d ${XDG_CONFIG_HOME:-$HOME/.config}/vifm/colors ] \
+  && ln -sf $DOT_CONFIG_DIR/vifm/colors/gruvbox.vifm ${XDG_CONFIG_HOME:-$HOME/.config}/vifm/colors/gruvbox.vifm
+
+[ ! -d ${XDG_CONFIG_HOME:-$HOME/.config}/zathura ] \
+  && mkdir ${XDG_CONFIG_HOME:-$HOME/.config}/zathura
+[ -d ${XDG_CONFIG_HOME:-$HOME/.config}/zathura ] \
+  && ln -sf $DOT_CONFIG_DIR/zathura/zathurarc ${XDG_CONFIG_HOME:-$HOME/.config}/zathura/zathurarc
+
+[ ! -d ${XDG_CONFIG_HOME:-$HOME/.config}/zsh ] \
+  && mkdir ${XDG_CONFIG_HOME:-$HOME/.config}/zsh;
+[ -d ${XDG_CONFIG_HOME:-$HOME/.config}/zsh ] \
+  && ln -sf $DOT_CONFIG_DIR/zsh/.zshrc ${XDG_CONFIG_HOME:-$HOME/.config}/zsh/.zshrc
+
+# Mac
+if [[ "$OSTYPE" == "darwin"* ]]; then
+  [ ! -d ${XDG_CONFIG_HOME:-$HOME/.config}/ideavim ] \
+    && mkdir ${XDG_CONFIG_HOME:-$HOME/.config}/ideavim
+  [ -d ${XDG_CONFIG_HOME:-$HOME/.config}/ideavim ] \
+    && ln -sf $DOT_CONFIG_DIR/ideavim/ideavimrc ${XDG_CONFIG_HOME:-$HOME/.config}/ideavim/ideavimrc
+fi

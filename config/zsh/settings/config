@@ -1,0 +1,44 @@
+# vim: filetype=sh
+
+## zsh-autosuggestions
+[ -f $ZSH_CUSTOM/zsh-autosuggestions/zsh-autosuggestions.zsh ] \
+  && source $ZSH_CUSTOM/zsh-autosuggestions/zsh-autosuggestions.zsh
+
+## zsh function
+setopt share_history # Sync history
+setopt autocd # Automatically cd into typed directory.
+setopt correct
+setopt interactive_comments # TODO search
+
+stty stop undef # Disable ctrl-s to freeze terminal.
+
+# Basic auto/tab complete:
+autoload -U compinit
+zstyle ':completion:*' menu select
+zmodload zsh/complist
+compinit
+_comp_options+=(globdots)		# Include hidden files.
+
+# Less
+export LESS_TERMCAP_mb=$'\e[1;32m'
+export LESS_TERMCAP_md=$'\e[1;32m'
+export LESS_TERMCAP_me=$'\e[0m'
+export LESS_TERMCAP_se=$'\e[0m'
+export LESS_TERMCAP_so=$'\e[01;33m'
+export LESS_TERMCAP_ue=$'\e[0m'
+export LESS_TERMCAP_us=$'\e[1;4;31m'
+export LESS_TERMCAP_mb=$'\e[1;32m'
+export LESS_TERMCAP_md=$'\e[1;32m'
+export LESS_TERMCAP_me=$'\e[0m'
+export LESS_TERMCAP_se=$'\e[0m'
+export LESS_TERMCAP_so=$'\e[01;33m'
+export LESS_TERMCAP_ue=$'\e[0m'
+export LESS_TERMCAP_us=$'\e[1;4;31m'
+
+# fzf
+## Set layout
+export FZF_DEFAULT_OPTS='--layout=reverse --height 40% --color=bg+:#3c3836,bg:#32302f,spinner:#fb4934,hl:#928374,fg:#ebdbb2,header:#928374,info:#8ec07c,pointer:#fb4934,marker:#fb4934,fg+:#ebdbb2,prompt:#fb4934,hl+:#fb4934'
+
+## Set to be able find dot files
+export FZF_DEFAULT_COMMAND='ag --hidden --ignore .git -g ""'
+

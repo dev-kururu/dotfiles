@@ -1,0 +1,97 @@
+#!/bin/sh
+
+[ -x "$(command -v nvim)" ] && alias vim="nvim" vi="nvim" vimdiff="nvim -d"
+
+# Overide zsh shell's basic command
+alias \
+  history="history 0";
+
+# one word alias
+alias \
+  e="nvim" \
+  e.="nvim ./" \
+  f='find' \
+  g="git" \
+  h='tldr' \
+  j='jobs' \
+  k="kill" \
+  l='ls -CF' \
+  t="tig" \
+  q="exit" \
+  r="grep" \
+  s="ssh" \
+  v="$FILE_MANAGER ./ " \
+  x="tmux" \
+  z="zathura";
+
+alias -g \
+  A='| awk' \
+  C='| pbcopy' \
+  E='| nvim -R -' \
+  G='| grep' \
+  H='| head' \
+  L='| less -R' \
+  T='| tail' \
+  W='| wc -l' \
+  X='| xargs'
+
+# ls
+alias \
+  la="ls -AlF" \
+  ld="ls -ld -- */" \
+  ll="ls -l";
+
+# cd
+alias \
+  ..='cd ..' \
+  ...='cd ../..' \
+  ....='cd ../../..';
+
+# Git alias
+alias \
+  ga="git add" \
+  gaa="git add *" \
+  gb='git branch' \
+  gc="git commit" \
+  gc!="git commit --amend" \
+  gd="git diff" \
+  gf="git pull" \
+  gl="git log" \
+  gp="git push" \
+  gs="git status" \
+  gss="git status -s";
+
+# Verbosity and settings that you pretty much just always are going to want.
+alias \
+  bc="bc -ql" \
+  cp="cp -iv" \
+  ffmpeg="ffmpeg -hide_banner" \
+  mkdir="mkdir -pv" \
+  mv="mv -iv" \
+  yt="youtube-dl --add-metadata -i" \
+  yta="yt -x -f bestaudio/best" \
+  diff="diff -Npur";
+
+# Colorize commands when possible.
+alias \
+  ccat="highlight --out-format=ansi";
+
+# Mac
+if [[ "$OSTYPE" == "darwin"* ]]; then
+  alias \
+    sxiv="imgcat";
+
+  alias \
+    o="open -a Finder ./" \
+    p="brew" \
+    rm="rm -vi";
+
+  alias \
+    grep="grep" \
+    diff="diff" \
+    ls="gls -hN --color=auto --group-directories-first";
+
+  alias \
+    topm='top -o rsize' \
+    topc='top -o cpu';
+fi
