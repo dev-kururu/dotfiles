@@ -1,34 +1,34 @@
 " Plugins Section
 
 call plug#begin(system('echo -n "${XDG_CONFIG_HOME:-$HOME/.config}/nvim/plugged"'))
-  " Syntax and Autocomplete
+  " 문법 Syntax
   Plug 'neoclide/coc.nvim', {'branch': 'release'}
-  Plug 'SirVer/ultisnips'
   Plug 'dense-analysis/ale'
 
-  " Write
+  " 자동완성 Autocomplete
+  Plug 'SirVer/ultisnips'
+
+  " 작성 Write
   Plug 'tpope/vim-repeat'
   Plug 'tpope/vim-surround'
   Plug 'preservim/nerdcommenter'
   Plug 'jiangmiao/auto-pairs'
-  Plug 'mbbill/undotree'
   Plug 'tommcdo/vim-lion'
   Plug 'tpope/vim-abolish'
 
-  " Format
+  " 포맷 Format
   Plug 'sbdchd/neoformat'
 
-  " Find
+  " 탐색 Find
   Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
   Plug 'junegunn/fzf.vim'
   Plug 'mattesgroeger/vim-bookmarks'
-  Plug 't9md/vim-choosewin'
-
-  " Search
-  Plug 'easymotion/vim-easymotion'
   Plug 'preservim/nerdtree'
 
-  " Git
+  " 검색 Search
+  Plug 'easymotion/vim-easymotion'
+
+  " 깃 Git
   Plug 'airblade/vim-gitgutter'
   Plug 'APZelos/blamer.nvim'
   Plug 'tpope/vim-fugitive'
@@ -37,6 +37,8 @@ call plug#begin(system('echo -n "${XDG_CONFIG_HOME:-$HOME/.config}/nvim/plugged"
   Plug 'vimwiki/vimwiki', { 'branch': 'dev' }
   Plug 'mhinz/vim-startify'
   Plug 'junegunn/goyo.vim'
+  Plug 'mbbill/undotree'
+  Plug 't9md/vim-choosewin'
 
   " Color
   Plug 'morhetz/gruvbox'
